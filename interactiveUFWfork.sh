@@ -3,7 +3,7 @@
 #Easy front end for enabling UFW on Virtual Servers
 
 #Global variables
-continue = 'y'
+cont = 'y'
 
 #Test for root priveleges
 if [ $EUID -ne 0 ];
@@ -15,10 +15,11 @@ fi
 
 printf "\nInteractive UFW Cool Stuff\n"
 
-until [ $continue == 'n' ];
+until [ $cont == 'n' ];
 do
 	printf "\nCurrent UFW Status:\n"
 	ufw status numbered
+  sleep 2
 
 	printf "\nEnter Source address or leave blank for any: "
 	read source
@@ -54,11 +55,11 @@ do
 	else
 		printf "ufw allow from $source to $destination port $port proto $protocol comment \"\'$comments \'\""
 	fi
-	
+
 	printf "\nEnter another rule y/n? "
-	read continue
-	continue=${continue:0:1}
-	continue=${continue,,}
-	printf "\nContinue = $continue \n"
+	read cont
+	cont=${cont:0:1}
+	cont=${cont,,}
+	printf "\ncont = $cont \n"
 	sleep 1
 done
