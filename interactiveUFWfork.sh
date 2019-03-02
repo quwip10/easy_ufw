@@ -19,8 +19,9 @@ until [ $cont == 'n' ];
 do
 	printf "\nCurrent UFW Status:\n"
   printf "\nPress space for next page\n"
-  printf "\nPress q to continue\n"
-  sleep 2
+  printf "Press q to continue\n"
+  read -p "Press [enter] to continue "
+
 	ufw status numbered | less
 
 	printf "\nEnter Source address or leave blank for any: "
