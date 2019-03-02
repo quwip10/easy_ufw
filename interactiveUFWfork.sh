@@ -3,7 +3,7 @@
 #Easy front end for enabling UFW on Virtual Servers
 
 #Global variables
-cont = 'y'
+cont='y'
 
 #Test for root priveleges
 if [ $EUID -ne 0 ];
