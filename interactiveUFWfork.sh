@@ -18,8 +18,9 @@ printf "\nInteractive UFW Cool Stuff\n"
 until [ $cont == 'n' ];
 do
 	printf "\nCurrent UFW Status:\n"
-  printf "\nPress space for next page\n"
-  printf "Press q to continue\n"
+  printf "\nPress [enter] for next line"
+  printf "Press [space] for next page\n"
+  printf "Press q to exit status view\n"
   read -p "Press [enter] to continue "
 
 	ufw status numbered | less
