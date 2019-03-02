@@ -8,7 +8,7 @@ cont='y'
 #Test for root priveleges
 if [ $EUID -ne 0 ];
 then
-         printf "\nPlease run with sudo/root priveleges. Exiting...\n\n"
+         printf "\nPlease run with sudo/root privileges. Exiting...\n\n"
          sleep 1
          exit
 fi
@@ -18,8 +18,10 @@ printf "\nInteractive UFW Cool Stuff\n"
 until [ $cont == 'n' ];
 do
 	printf "\nCurrent UFW Status:\n"
-	ufw status numbered
+  printf "\nPress space for next page\n"
+  printf "\nPress q to continue\n"
   sleep 2
+	ufw status numbered | less
 
 	printf "\nEnter Source address or leave blank for any: "
 	read source
