@@ -13,7 +13,8 @@ then
          exit
 fi
 
-printf "\nInteractive UFW Cool Stuff\n"
+printf "\nInteractive UFW \n"
+sleep 1
 
 #Checks for local file with preconfigured rules for automation
 #I need to add this procedure later
