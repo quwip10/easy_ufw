@@ -62,17 +62,29 @@ do
   #prints variables for rule
 	if [ -z "$protocol" ] && [ -z "$port" ];
 	then
-		printf "ufw allow from $source to $destination comment \"\'$comments \'\""
+		printf "ufw allow from $source to $destination comment \"$comments \""
 	elif [ -z $protocol ] && [ ! -z $port ];
 	then
-		printf "ufw allow from $source to $destination port $port comment \"\'$comments \'\""
+		printf "ufw allow from $source to $destination port $port comment \"$comments \""
 	else
-		printf "ufw allow from $source to $destination port $port proto $protocol comment \"\'$comments \'\""
+		printf "ufw allow from $source to $destination port $port proto $protocol comment \"$comments \""
 	fi
 
   #Prompt to commit rule
-#  printf "Commit rule? (y/n)"
-#  read commit
+  printf "Commit rule? (y/n)"
+  read commit
+
+  if [ $commit = 'y' ]
+  then
+    if [ -z "$protocol" ] && [ -z "$port" ];
+    then
+      ufw allow from $source to $destination comment \"$comments \"
+    elif [ -z $protocol ] && [ ! -z $port ];
+    then
+      ufw allow from $source to $destination port $port comment \"$comments \"
+    else
+      ufw allow from $source to $destination port $port proto $protocol comment \"$comments \"
+    fi
 
   #Prompts user to add another rule. Quits on no.
 	printf "\nEnter another rule y/n? "
