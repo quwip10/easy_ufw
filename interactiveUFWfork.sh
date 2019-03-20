@@ -62,16 +62,16 @@ do
   #prints variables for rule
 	if [ -z "$protocol" ] && [ -z "$port" ];
 	then
-		printf "ufw allow from $source to $destination comment \"$comments \""
+		printf "ufw allow from $source to $destination comment \"$comments \"\n"
 	elif [ -z $protocol ] && [ ! -z $port ];
 	then
-		printf "ufw allow from $source to $destination port $port comment \"$comments \""
+		printf "ufw allow from $source to $destination port $port comment \"$comments \"\n"
 	else
-		printf "ufw allow from $source to $destination port $port proto $protocol comment \"$comments \""
+		printf "ufw allow from $source to $destination port $port proto $protocol comment \"$comments \"\n"
 	fi
 
   #Prompt to commit rule
-  printf "Commit rule? (y/n)"
+  printf " \nCommit rule? (y/n)"
   read commit
 
   if [ $commit = 'y' ]
@@ -92,6 +92,6 @@ do
 	read cont
 	cont=${cont:0:1}
 	cont=${cont,,}
-	printf "\ncont = $cont \n"
+#	printf "\ncont = $cont \n"
 	sleep 1
 done
