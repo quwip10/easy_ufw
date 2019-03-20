@@ -27,8 +27,8 @@ do
 	printf "\nCurrent UFW Status:\n"
   printf "\nPress [enter] for next line\n"
   printf "Press [space] for next page\n"
-  printf "Press q to exit status view\n"
-  read -p "\nPress [enter] now to continue "
+  printf "Press q to exit status view\n \n"
+  read -p "Press [enter] now to continue "
 
   #displays current ufw status/rules piped to less
 	ufw status numbered | less
@@ -86,7 +86,7 @@ do
       ufw allow from $source to $destination port $port proto $protocol comment \"$comments \"
     fi
   fi
-  
+
   #Prompts user to add another rule. Quits on no.
 	printf "\nEnter another rule y/n? "
 	read cont
