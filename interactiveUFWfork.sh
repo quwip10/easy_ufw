@@ -85,7 +85,8 @@ do
     else
       ufw allow from $source to $destination port $port proto $protocol comment \"$comments \"
     fi
-
+  fi
+  
   #Prompts user to add another rule. Quits on no.
 	printf "\nEnter another rule y/n? "
 	read cont
